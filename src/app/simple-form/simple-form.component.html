@@ -1,3 +1,15 @@
-<p>
-  simple-form works!
-</p>
+<div class="panel panel-default">
+  	<div class="panel-body">
+  		<h1 class="box-heading"><span>Simple Form</span></h1>
+  		<form [formGroup]="simpleForm" (ngSubmit)="save(simpleForm.value)" novalidate="novalidate" [ngClass]="{ 'submitted' : saveButtonClicked }">
+	  		
+	  		<app-animated-input [labelText] = "'First Name'" [inputControl] = "simpleForm.controls['firstName']"> </app-animated-input>
+
+	  		<app-animated-input [labelText] = "'Last Name'" [inputControl] = "simpleForm.controls['lastName']"> </app-animated-input>
+
+	  		<app-animated-input [inputType]="'select'" [labelText] = "'Sex'" [inputControl] = "simpleForm.controls['sex']" [dropDownConfig]="sexDropDownConfig"> </app-animated-input>
+
+		  	<button class="btn btn-primary btn-block" type="submit">Get this saved!</button>
+		</form>
+  	</div>
+</div>

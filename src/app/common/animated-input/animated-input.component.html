@@ -1,0 +1,19 @@
+<div class="form-group col-xs-12" [ngSwitch]="inputType">
+	<label class="col-xs-12" [ngClass]="{'focus':focus, 'filled':inputControl.value}">{{labelText}}</label>
+  	<div class="col-xs-12" *ngSwitchDefault>
+        <input class="form-control" type="text" [formControl]="inputControl" (blur)= "focus=false;" (focus)= "focus=true;" [ngClass]= "{'focus':focus||inputControl.value}">
+  	</div>
+  	<div class="col-xs-12" *ngSwitchCase="'select'">
+	    <select class="form-control" [formControl]="inputControl" (blur)="focus=false;" (focus)="focus=true;" [ngClass]= "{'focus':focus||inputControl.value}">
+	      <option value=null>{{dropDownConfig.defaultHeading||'Select'}} </option>
+	      <option *ngFor="let currentOption of dropDownConfig.options" [ngValue]="currentOption[dropDownConfig.valueField] || currentOption">{{currentOption[dropDownConfig.displayField] || currentOption}}</option>
+	    </select>
+	    
+	</div>
+	<div class="error-block col-xs-12"  [ngClass] = "{'input-touched':inputControl.touched, 'input-invalid':inputControl.invalid}">
+  		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  		<span [hidden]="!inputControl.errors?.required">
+          	Please enter {{labelText}}.
+        </span>
+  	</div>
+</div>

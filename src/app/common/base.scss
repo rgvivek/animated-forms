@@ -1,0 +1,7 @@
+@mixin set-content($color, $BG-color, $border, $padding, $margin) {
+  color:$color;
+  background:$BG-color;
+  border:$border;
+  padding:$padding;
+  margin:$margin;
+}
