@@ -9,6 +9,12 @@
 
 	  		<app-animated-input [inputType]="'select'" [labelText] = "'Sex'" [inputControl] = "simpleForm.controls['sex']" [dropDownConfig]="sexDropDownConfig"> </app-animated-input>
 
+	  		<app-animated-input [inputType]="'date'" [labelText] = "'Date Of Birth'" [inputControl] = "simpleForm.controls['dateOfBirth']" [dateConfig]="dateOfBirthConfig"> </app-animated-input>
+
+	  		<app-animated-input [inputType] = "'radio'" [labelText] = "'Experience Level'" [inputControl] = "simpleForm.controls['experienceLevel']" [radioGroupConfig]="experienceLevelConfig"> </app-animated-input>
+
+	  		<app-animated-input [inputType] = "'checkbox'" [labelText] = "'I accept the terms & conditions'" [inputControl] = "simpleForm.controls['disclaimer']"> </app-animated-input>
+
 		  	<button class="btn btn-primary btn-block" type="submit">Get this saved!</button>
 		</form>
   	</div>

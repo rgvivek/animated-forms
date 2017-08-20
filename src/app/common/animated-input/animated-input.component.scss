@@ -13,6 +13,7 @@
     background-repeat: no-repeat;
     background-position: center bottom;
     background-color: transparent;
+    -webkit-transition: background .3s ease-in-out;
     transition: background .3s ease-in-out;
     background-image: linear-gradient($Text-Green-1, $Text-Green-1), linear-gradient($Text-Grey-1, $Text-Grey-1);
     display:inline-block;
@@ -26,12 +27,13 @@
     }
 }
 
-.form-group label{
+.form-group>label:not(.checkbox-input){
 	padding-left:30px;
 	position:absolute;
 	left:2px;
 	top:7px;
 	pointer-events: none;
+    -webkit-transition: 0.3s ease all;
     transition: 0.3s ease all;
     will-change: left, top, contents, color;
     color: $Text-Grey-1;
@@ -49,8 +51,88 @@
     }
 }
 
+.form-group .checkbox-input, .form-group .radio-input{
+	color:$Text-Grey-1;
+	>input{
+		width:25px;
+		height:25px;
+		display: none;
+	}
+	>span{
+		display: table-cell;
+		vertical-align: middle;
+    	text-align: left;
+		font-weight: normal;
+    	width: 100%;
+    }
+
+    .clickable-label>span {
+	  	margin-right: 5px;
+		padding: 0 5px;
+	  	width: 27px;
+		font-weight: bold;
+    	font-size: 16px;
+    	border-radius: 5px;
+    	border: 2px solid;
+	  	display: inline-block;
+  		&:before{
+  			color: $Text-Green-1;
+  			display: block;
+  			opacity:0;
+  		}
+	}
+
+	.check-box-label>span:before{
+		content: '✔';
+	}
+
+	.radio-box-label>span{
+		border-radius:50%;
+		&:before{
+			content: '\3000';
+		}
+	}	
+
+	.clickable-label.filled{
+  		color:$Text-Green-1;
+  	}
+	input:checked + .clickable-label{
+		>span:before {
+			opacity: 1;
+		}
+		&.radio-box-label{
+			color:$Text-Green-1;
+			>span{
+				color:$Text-Grey-1;
+				background:$Text-Green-1;
+			}
+		}
+	}
+}
+
 .input-touched.input-invalid, .submitted .input-invalid  {
   display : block;
+}
+
+select::-ms-placeholder {
+    display: none;
+}
+
+.clickable-label:before {
+    content: '';
+	display: block;
+	position: absolute;
+	width: 27px;
+	height: 27px;
+	background: $Text-Green-1;
+	border-radius: 100%;
+	opacity: .6;
+	z-index:1;
+	transform: scale(0);
+}
+
+.clickable-label:not(:active):before{
+	animation: ripple .5s ease-out;
 }
 
 .error-block{
@@ -60,4 +142,16 @@
 	border: 1px solid transparent;
     border-radius: 4px;
     white-space:normal;
+}
+
+label+label.radio-input{
+	display:table-cell;
+    padding-left: 20px;
+}
+
+label.radio-group-label{
+	display:table-cell;
+	vertical-align:middle;
+	color: $Text-Grey-1;
+	font-weight: normal;
 }

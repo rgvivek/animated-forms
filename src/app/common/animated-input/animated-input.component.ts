@@ -26,8 +26,16 @@ export class AnimatedInputComponent implements OnInit {
 	@Input() radioGroupConfig:RadioGroupConfig;
 	@Input() checkBoxConfig:CheckBoxConfig;
 	@Input() toggleButtonConfig:ToggleButtonConfig;
+	showLabel:boolean = true;
 
   	ngOnInit() {
+  		switch(this.inputType){
+  			case "radio":
+  			case "checkbox":{
+  				this.showLabel = false;
+  				break;
+  			}
+  		}
   	}
 
 }
