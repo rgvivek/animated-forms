@@ -1,0 +1,11 @@
+<div class="fixed-scroll">
+  <div class="scroll-area">
+    <div class="highlighted-tab"><span>{{highlightedTab.title}}</span></div>
+    <ul class="nav nav-tabs">
+      <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
+        <a>{{tab.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<ng-content></ng-content>

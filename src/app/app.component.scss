@@ -1,0 +1,50 @@
+@import "./common/images.scss";
+@import "./common/colors.scss";
+
+body{
+  background:$BG-Grey-1;
+}
+app-root{
+  width:100%;
+  height:100%;
+  margin-top:20px;
+  float:left;
+  padding:5%;
+  /*&::after {
+    content: "";
+    background: url($BG-Main) no-repeat 100% 100%;
+    background-size:cover;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }*/
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+  }
+  30% {
+    transform: scale(2.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.btn-primary{
+  background-color:$BG-Green-2;
+  border-color:$BG-Green-2;
+  outline:0;
+  &:hover,&:hover:active,&:hover:focus,&:visited,&:focus:visited,&:focus:active:visited{
+    background-color:$BG-Green-2;
+    border-color:$BG-Green-2;
+    box-shadow:0px 0px 7.5px $BG-Green-3;
+    outline:0;
+  }
+}

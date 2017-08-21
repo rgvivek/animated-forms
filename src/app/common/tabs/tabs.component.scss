@@ -1,0 +1,55 @@
+@import "../colors.scss";
+
+ul.nav.nav-tabs {
+    &:before{
+        display:none;
+    }
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border:0;
+    margin-bottom: 30px;
+}
+
+.nav-tabs > li {
+    width:100%;
+    float: none;
+    display: table-cell;
+    background: $BG-Grey-1;
+    cursor:pointer;
+}
+
+.nav-tabs > li > a {
+    text-align: center;
+    color:$BG-Green-2;
+    border:0;
+    line-height:1;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li:hover>a, .nav-tabs>li.active, .nav-tabs>li.active:focus, 
+.nav-tabs>li.active:hover, .nav-tabs>li:hover , .nav-tabs, .nav>li:focus, .nav>li:hover {
+    background-color: $BG-Green-1;
+    border :0
+}
+
+.highlighted-tab{
+    position: absolute;
+    height: 40px;
+    background: $BG-Green-2;
+    margin: -3px -10px;
+    z-index: 1;
+    width:190px;
+    border-radius : 3px;
+    color:$White;
+    font-size:16px;
+    text-align:center;
+    transition: all .5s cubic-bezier(0.3, 1.5, 1, 1);
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+    box-shadow: 0px 15px 50px $BG-Green-1;
+    display:table;
+    >span{
+        display:table-cell;
+        vertical-align : middle;
+    }
+}

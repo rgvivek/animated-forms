@@ -1,6 +1,4 @@
-<div class="panel panel-default">
-  	<div class="panel-body">
-  		<h1 class="box-heading"><span>Simple Form</span></h1>
+
   		<form [formGroup]="simpleForm" (ngSubmit)="save(simpleForm.value)" novalidate="novalidate" [ngClass]="{ 'submitted' : saveButtonClicked }">
 	  		
 	  		<app-animated-input [labelText] = "'First Name'" [inputControl] = "simpleForm.controls['firstName']"> </app-animated-input>
@@ -15,7 +13,6 @@
 
 	  		<app-animated-input [inputType] = "'checkbox'" [labelText] = "'I accept the terms & conditions'" [inputControl] = "simpleForm.controls['disclaimer']"> </app-animated-input>
 
-		  	<button class="btn btn-primary btn-block" type="submit">Get this saved!</button>
+		  	<button class="btn btn-primary pull-right" type="submit">Move on!</button>
 		</form>
-  	</div>
-</div>
+  	

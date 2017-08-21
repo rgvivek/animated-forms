@@ -1,8 +1,10 @@
-@import "../base.scss";
+@import "../mixins.scss";
 @import "../colors.scss";
 
 :host{
-	@include set-content($White, $BG-Green-1,0,0,0);
+	float:left;
+	width:100%;
+	padding:0;
 }
 
 
@@ -147,6 +149,11 @@ select::-ms-placeholder {
 label+label.radio-input{
 	display:table-cell;
     padding-left: 20px;
+    float:left;
+    @media (max-width: 768px) { 
+    	width:100%;
+    	padding-left: 0;
+	}
 }
 
 label.radio-group-label{
@@ -154,4 +161,6 @@ label.radio-group-label{
 	vertical-align:middle;
 	color: $Text-Grey-1;
 	font-weight: normal;
+	float:left;
+	margin-top:3px;
 }

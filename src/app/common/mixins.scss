@@ -1,0 +1,4 @@
+@mixin set-theme($color, $BG-color) {
+  color:$color;
+  background:$BG-color;
+}

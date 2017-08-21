@@ -1,10 +1,4 @@
-@mixin set-content($color, $BG-color, $border, $padding, $margin) {
-  color:$color;
-  background:$BG-color;
-  border:$border;
-  padding:$padding;
-  margin:$margin;
-}
+@import "./colors.scss";
 
 @keyframes ripple {
   0% {
@@ -17,4 +11,8 @@
     opacity: 0;
     transform: scale(1);
   }
+}
+
+.btn-primary{
+	background:$BG-Green-1;
 }
