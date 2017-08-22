@@ -16,7 +16,7 @@ export class SimpleFormComponent implements OnInit {
 	public simpleForm:FormGroup;
 	public sexDropDownConfig:DropDownConfig = new DropDownConfig();
 	public dateOfBirthConfig = new DateConfig();
-	public experienceLevelConfig = new RadioGroupConfig();
+	public experienceLevelConfig = new RadioGroupConfig(null,null,null);
   	constructor(private formBuilder: FormBuilder) {
   		this.simpleForm = formBuilder.group({
 			'firstName' : [null, Validators.required],

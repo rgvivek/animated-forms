@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  	<div class="panel-body">
+  		<h1 class="box-heading"><span>Evaluation Wizard</span></h1>
+		<tabs class="full-width-tabs">
+			<tab tabTitle="Basic">
+				<app-basic-info (onNextClick)="onBasicNextClick()"></app-basic-info>
+			</tab>
+			<tab tabTitle="Skills">
+				<app-skills-info (onNextClick)="onSkillsNextClick()" (onPreviousClick)="onSkillsPreviousClick()"></app-skills-info>
+			</tab>
+			<tab tabTitle="Scores">
+				<app-scores-info (onNextClick)="onSkillsPreviousClick()" (onPreviousClick)="onBasicNextClick()"></app-scores-info>
+			</tab>
+		</tabs>
+	</div>
+</div>

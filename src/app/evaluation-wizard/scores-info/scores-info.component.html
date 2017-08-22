@@ -1,0 +1,17 @@
+<form [formGroup]="scoresInfoForm" (ngSubmit)="save(scoresInfoForm.value)" novalidate="novalidate" [ngClass]="{ 'submitted' : saveButtonClicked }">
+	  		
+	<div class="col-xs-6 col-md-12">
+		<app-animated-input [inputType] = "'radio'" [labelText] = "'Experience'" [inputControl] = "scoresInfoForm.controls['experienceLevel']" [radioGroupConfig]="experienceLevelConfig"> </app-animated-input>
+	</div>
+	<div class="col-xs-6 col-md-12">
+		<app-animated-input [inputType] = "'radio'" [labelText] = "'Technology Strength'" [inputControl] = "scoresInfoForm.controls['technologyStrength']" [radioGroupConfig]="technologyStrengthConfig"> </app-animated-input>
+	</div>
+	<div class="col-xs-6 col-md-12">
+		<app-animated-input [inputType] = "'radio'" [labelText] = "'Design Capabilities'" [inputControl] = "scoresInfoForm.controls['designCapabilities']" [radioGroupConfig]="designCapabilitiesConfig"> </app-animated-input>
+	</div>
+	<div class="col-xs-6 col-md-12">
+		<app-animated-input [inputType] = "'radio'" [labelText] = "'Leadership Ability'" [inputControl] = "scoresInfoForm.controls['leadershipAbility']" [radioGroupConfig]="leadershipAbilityConfig"> </app-animated-input>
+	</div>
+  	<button class="btn btn-primary pull-left" type="button" (click)="onPreviousClicked()">Previous</button>
+  	<button class="btn btn-primary pull-right" type="submit">Complete</button>
+</form>

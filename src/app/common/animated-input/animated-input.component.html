@@ -1,28 +1,39 @@
-<div class="form-group col-xs-12" [ngSwitch]="inputType">
+<div class="form-group col-xs-12 {{classList}}" [ngSwitch]="inputType">
 	<label class="col-xs-12" [ngClass]="{'focus':focus, 'filled':inputControl.value}" *ngIf="showLabel">{{labelText}}</label>
-  	<div class="col-xs-12" *ngSwitchDefault>
-        <input class="form-control" type="{{inputType||'text'}}" [formControl]="inputControl" (blur)= "focus=false;" (focus)= "focus=true;" [ngClass]= "{'focus':focus||inputControl.value}">
-  	</div>
-  	<div class="col-xs-12" *ngSwitchCase="'date'">
-        <input class="form-control" type="date" [formControl]="inputControl" (blur)= "focus=false;" (focus)= "focus=true;" [ngClass]="{'focus':focus, 'filled':inputControl.value}" min="{{dateConfig.minDate}}" max="{{dateConfig.maxDate}}" >
-  	</div>
-  	<div class="col-xs-12" *ngSwitchCase="'select'">
-	    <select class="form-control" [formControl]="inputControl" (blur)="focus=false;" (focus)="focus=true;" [ngClass]= "{'focus':focus||inputControl.value}">
-	      	<option value="">{{dropDownConfig.defaultHeading||'Select'}} </option>
-	      	<option *ngFor="let currentOption of dropDownConfig.options" [ngValue]="currentOption[dropDownConfig.valueField] || currentOption">{{currentOption[dropDownConfig.displayField] || currentOption}}</option>
-	    </select>
+	<div class="col-xs-12" *ngSwitchDefault>
+      <input class="form-control" type="{{inputType||'text'}}" [formControl]="inputControl" (blur)= "focus=false;" (focus)= "focus=true;" [ngClass]= "{'focus':focus||inputControl.value}">
+	</div>
+	<div class="col-xs-12" *ngSwitchCase="'date'">
+      <input class="form-control" type="date" [formControl]="inputControl" (blur)= "focus=false;" (focus)= "focus=true;" [ngClass]="{'focus':focus, 'filled':inputControl.value}" min="{{dateConfig.minDate}}" max="{{dateConfig.maxDate}}" >
+	</div>
+  <div class="col-xs-12 file-input" *ngSwitchCase="'file'">
+    <div class="col-xs-12">
+      <input class="form-control file" type="file" [formControl]="inputControl" >
+    </div>
+    <label class="col-xs-12" [ngClass]="{'filled':inputControl.value}">{{labelText}}</label>
+  </div>
+	<div class="col-xs-12" *ngSwitchCase="'select'">
+    <select class="form-control" [formControl]="inputControl" (blur)="focus=false;" (focus)="focus=true;" [ngClass]= "{'focus':focus||inputControl.value}">
+      	<option value="">{{dropDownConfig.defaultHeading||'Select'}} </option>
+      	<option *ngFor="let currentOption of dropDownConfig.options" [ngValue]="currentOption[dropDownConfig.valueField] || currentOption">{{currentOption[dropDownConfig.displayField] || currentOption}}</option>
+    </select>
 	</div>
 	<label class="col-xs-12 checkbox-input" *ngSwitchCase="'checkbox'" >
-        <input class="form-control" type="checkbox" [formControl]="inputControl">
-        <span class="check-box-label clickable-label" [ngClass]="{'filled':inputControl.value}"><span></span>{{labelText}}</span>
+      <input class="form-control" type="checkbox" [formControl]="inputControl">
+      <span class="check-box-label clickable-label" [ngClass]="{'filled':inputControl.value}"><span></span>{{labelText}}</span>
+	</label>
+  <label class="col-xs-12 checkbox-icon-input" *ngSwitchCase="'checkbox-icon'" >
+      <input class="form-control" type="checkbox" [formControl]="inputControl">
+      <span class="check-box-label clickable-label" [ngClass]="{'filled':inputControl.value}"><span>{{labelText}}</span></span>
+  </label>
+  
+	<div class="col-xs-12" *ngSwitchCase="'radio'" >
+		<label class="radio-group-label col-xs-{{radioGroupConfig.columns}}" [ngClass]="{'filled':inputControl.value}">{{labelText}}</label>
+  	<label class="radio-input" *ngFor="let radio of radioGroupConfig.radioList">
+        <input class="form-control" type="radio" [formControl]="inputControl" name="{{radioGroupConfig.groupName}}" [value]="radio.value">
+        <span class="radio-box-label clickable-label"><span></span>{{radio.text}}</span>
   	</label>
-  	<div class="col-xs-12" *ngSwitchCase="'radio'" >
-  		<label class="radio-group-label" [ngClass]="{'filled':inputControl.value}">{{labelText}}</label>
-	  	<label class="radio-input" *ngFor="let radio of radioGroupConfig.radioList">
-	        <input class="form-control" type="radio" [formControl]="inputControl" name="{{radioGroupConfig.groupName}}" [value]="radio.value">
-	        <span class="radio-box-label clickable-label"><span></span>{{radio.text}}</span>
-	  	</label>
-  	</div>
+	</div>
 	<div class="error-block col-xs-12"  [ngClass] = "{'input-touched':inputControl.touched, 'input-invalid':inputControl.invalid}" *ngIf="showLabel">
   		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   		<span [hidden]="!inputControl.errors?.required">

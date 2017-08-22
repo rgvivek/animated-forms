@@ -1,0 +1,17 @@
+<form [formGroup]="skillsInfoForm" (ngSubmit)="save(skillsInfoForm.value)" novalidate="novalidate" [ngClass]="{ 'submitted' : saveButtonClicked }">
+	
+	<div class="col-xs-6 col-sm-3">
+		<app-animated-input [inputType] = "'checkbox-icon'" [labelText] = "'Angular 4'" [inputControl] = "skillsInfoForm.controls['angular']"> </app-animated-input>
+	</div>
+	<div class="col-xs-6 col-sm-3">
+		<app-animated-input [inputType] = "'checkbox-icon'" [labelText] = "'HTML5'" [inputControl] = "skillsInfoForm.controls['html']"> </app-animated-input>
+	</div>
+	<div class="col-xs-6 col-sm-3">
+		<app-animated-input [inputType] = "'checkbox-icon'" [labelText] = "'CSS3'" [inputControl] = "skillsInfoForm.controls['css']"> </app-animated-input>
+	</div>
+	<div class="col-xs-6 col-sm-3">
+		<app-animated-input [inputType] = "'checkbox-icon'" [labelText] = "'Javascript'" [inputControl] = "skillsInfoForm.controls['javascript']"> </app-animated-input>
+	</div>
+	<button class="btn btn-primary pull-left" type="button" (click)="onPreviousClicked()">Previous</button>
+  	<button class="btn btn-primary pull-right" type="submit">Next</button>
+</form>

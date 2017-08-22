@@ -15,11 +15,12 @@ import { ToggleButtonConfig } from './toggle-button-config';
 
 export class AnimatedInputComponent implements OnInit {
 
-  	constructor() { }
-  	@Input() inputControl: AbstractControl;
-  	@Input() inputType: string = 'text';
+  constructor() { }
+  @Input() inputControl: AbstractControl;
+  @Input() inputType: string = 'text';
 	@Input() labelText: string = '';
 	@Input() placeholderText: string = '';
+  @Input() classList: string = '';
 	@Input() textAreaConfig:TextAreaConfig;
 	@Input() dateConfig:DateConfig;
 	@Input() dropDownConfig:DropDownConfig;
@@ -30,7 +31,9 @@ export class AnimatedInputComponent implements OnInit {
 
   	ngOnInit() {
   		switch(this.inputType){
-  			case "radio":
+  			case "file":
+        case "radio":
+        case "checkbox-icon":
   			case "checkbox":{
   				this.showLabel = false;
   				break;

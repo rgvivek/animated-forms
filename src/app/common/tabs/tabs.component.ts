@@ -23,6 +23,10 @@ export class TabsComponent implements AfterViewInit {
     });
   }
 
+  onResize(){
+    this.selectTab(this.highlightedTab);
+  }
+
   selectTab(tab: TabComponent){
     this.tabs.toArray().forEach(tab => tab.active = false);
     tab.active = true;

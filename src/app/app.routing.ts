@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { SimpleWizardComponent }  from './simple-wizard/simple-wizard.component';
+import { EvaluationWizardComponent }  from './evaluation-wizard/evaluation-wizard.component';
 
 const appRoutes: Routes = [
   	{
@@ -9,7 +9,7 @@ const appRoutes: Routes = [
   		pathMatch:"full"
     },{
       path: 'wizard',
-      component: SimpleWizardComponent
+      component: EvaluationWizardComponent
     }
 ];
 

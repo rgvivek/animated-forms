@@ -1,0 +1,11 @@
+.basic-info{
+	.col-xs-12{
+		padding:0;	
+	}
+	float:left;
+	display:flex;
+	flex-direction:row;
+	 @media (max-width: 767px) { 
+    	flex-direction:column-reverse;
+	}
+}
