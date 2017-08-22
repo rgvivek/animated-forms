@@ -1,5 +1,5 @@
 
-  		<form [formGroup]="simpleForm" (ngSubmit)="save(simpleForm.value)" novalidate="novalidate" [ngClass]="{ 'submitted' : saveButtonClicked }">
+  		<form [formGroup]="simpleForm" (ngSubmit)="save(simpleForm.value)" novalidate="novalidate" >
 	  		
 	  		<app-animated-input [labelText] = "'First Name'" [inputControl] = "simpleForm.controls['firstName']"> </app-animated-input>
 

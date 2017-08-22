@@ -1,4 +1,4 @@
-<form [formGroup]="scoresInfoForm" (ngSubmit)="save(scoresInfoForm.value)" novalidate="novalidate" [ngClass]="{ 'submitted' : saveButtonClicked }">
+<form [formGroup]="scoresInfoForm" (ngSubmit)="save(scoresInfoForm.value)" novalidate="novalidate">
 	  		
 	<div class="col-xs-6 col-md-12">
 		<app-animated-input [inputType] = "'radio'" [labelText] = "'Experience'" [inputControl] = "scoresInfoForm.controls['experienceLevel']" [radioGroupConfig]="experienceLevelConfig"> </app-animated-input>
