@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RadioGroupConfig, Radio } from 'app/common/animated-input/radio-group-config';
+import { NotificationsService } from 'app/common/notifications/notifications.service';
 
 @Component({
   selector: 'app-scores-info',
@@ -18,7 +19,7 @@ export class ScoresInfoComponent implements OnInit {
 	public designCapabilitiesConfig:RadioGroupConfig;
 	public leadershipAbilityConfig:RadioGroupConfig;
 
-  	constructor(private formBuilder: FormBuilder) {
+  	constructor(private formBuilder: FormBuilder, private notificationsService:NotificationsService) {
   		this.scoresInfoForm = formBuilder.group({
   			'experienceLevel' : [null, Validators.required],
 		    'technologyStrength' : [null, Validators.required],
@@ -33,7 +34,9 @@ export class ScoresInfoComponent implements OnInit {
 
 	save(formData : any):void{
 		if(this.scoresInfoForm.valid){
-			alert('your data is saved');
+			this.notificationsService.success("Scores successfully saved.");
+		}else{
+			this.notificationsService.warn("Scores are not filled completely");
 		}
 		this.onNextClick.emit([]);
 	}

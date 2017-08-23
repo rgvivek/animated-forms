@@ -1,5 +1,5 @@
 <form [formGroup]="skillsInfoForm" (ngSubmit)="save(skillsInfoForm.value)" novalidate="novalidate">
-	
+	<div class="col-xs-12 content-text"> Select all the applicable skills</div>
 	<div class="col-xs-6 col-sm-3">
 		<app-animated-input [inputType] = "'checkbox-icon'" [labelText] = "'Angular 4'" [inputControl] = "skillsInfoForm.controls['angular']"> </app-animated-input>
 	</div>

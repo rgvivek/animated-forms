@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RadioGroupConfig, Radio } from 'app/common/animated-input/radio-group-config';
+import { NotificationsService } from 'app/common/notifications/notifications.service';
 
 @Component({
   selector: 'app-skills-info',
@@ -13,7 +14,7 @@ export class SkillsInfoComponent implements OnInit {
 	@Output('onNextClick') onNextClick: EventEmitter<any> = new EventEmitter();
   	public skillsInfoForm:FormGroup;
 	
-  	constructor(private formBuilder: FormBuilder) {
+  	constructor(private formBuilder: FormBuilder, private notificationsService:NotificationsService) {
   		this.skillsInfoForm = formBuilder.group({
   			'angular' : [null],
 		    'html' : [null],
@@ -27,7 +28,9 @@ export class SkillsInfoComponent implements OnInit {
 
 	save(formData : any):void{
 		if(this.skillsInfoForm.valid){
-			alert('your data is saved');
+			this.notificationsService.success("Skills information successfully saved.");
+		}else{
+			this.notificationsService.warn("Skills information details are not filled completely");
 		}
 		this.onNextClick.emit([]);
 	}

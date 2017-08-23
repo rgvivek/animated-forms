@@ -5,7 +5,7 @@ import { DateConfig } from 'app/common/animated-input/date-config';
 import { DropDownConfig } from 'app/common/animated-input/drop-down-config';
 import { RadioGroupConfig, Radio } from 'app/common/animated-input/radio-group-config';
 import { CheckBoxConfig } from 'app/common/animated-input/check-box-config';
-import { ToggleButtonConfig } from 'app/common/animated-input/toggle-button-config';
+import { NotificationsService } from 'app/common/notifications/notifications.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class BasicInfoComponent implements OnInit {
   	public basicInfoForm:FormGroup;
 	public dateOfBirthConfig = new DateConfig();
 
-  	constructor(private formBuilder: FormBuilder) {
+  	constructor(private formBuilder: FormBuilder, private notificationsService:NotificationsService) {
   		this.basicInfoForm = formBuilder.group({
   			'candidatePhoto' : [null],
 			'candidateName' : [null, Validators.required],
@@ -34,7 +34,9 @@ export class BasicInfoComponent implements OnInit {
 
 	save(formData : any):void{
 		if(this.basicInfoForm.valid){
-			alert('your data is saved');
+			this.notificationsService.success("Basic information successfully saved.");
+		}else{
+			this.notificationsService.warn("Basic information details are not filled completely");
 		}
 		this.onNextClick.emit([]);
 	}

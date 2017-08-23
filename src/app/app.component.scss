@@ -12,18 +12,19 @@ app-root{
   transform: translate(-50%, 50px);
   left: 50%;
   position: absolute;
-  /*&::after {
-    content: "";
-    background: url($BG-Main) no-repeat 100% 100%;
-    background-size:cover;
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   
-  }*/
+  font-size:16px;
+}
+
+app-notifications{
+  position:absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+  width:70%;
+  float:left;
+  z-index:2;
+  @media (max-width: 991px) { 
+    width:90%;
+  }
 }
 
 @keyframes ripple {

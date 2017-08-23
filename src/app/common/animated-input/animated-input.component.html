@@ -4,11 +4,12 @@
       <input class="form-control" type="{{inputType||'text'}}" [formControl]="inputControl" (blur)= "focus=false;" (focus)= "focus=true;" [ngClass]= "{'focus':focus||inputControl.value}">
 	</div>
 	<div class="col-xs-12" *ngSwitchCase="'date'">
-      <input class="form-control" type="date" [formControl]="inputControl" (blur)= "focus=false;" (focus)= "focus=true;" [ngClass]="{'focus':focus, 'filled':inputControl.value}" min="{{dateConfig.minDate}}" max="{{dateConfig.maxDate}}" >
+      <input class="form-control" type="date" [formControl]="inputControl" (blur)= "focus=false;" (focus)= "focus=true;" [ngClass]="{'focus':focus||inputControl.value}" min="{{dateConfig.minDate}}" max="{{dateConfig.maxDate}}" >
 	</div>
   <div class="col-xs-12 file-input" *ngSwitchCase="'file'">
     <div class="col-xs-12">
-      <input class="form-control file" type="file" [formControl]="inputControl" >
+      <input class="form-control file" type="file" [formControl]="inputControl" (change)="onFileChange($event)">
+      <img [src]="logo" [ngClass]="{'portrait-mode':isPortraitMode}"> 
     </div>
     <label class="col-xs-12" [ngClass]="{'filled':inputControl.value}">{{labelText}}</label>
   </div>
@@ -22,9 +23,9 @@
       <input class="form-control" type="checkbox" [formControl]="inputControl">
       <span class="check-box-label clickable-label" [ngClass]="{'filled':inputControl.value}"><span></span>{{labelText}}</span>
 	</label>
-  <label class="col-xs-12 checkbox-icon-input" *ngSwitchCase="'checkbox-icon'" >
+  <label class="checkbox-icon-input" *ngSwitchCase="'checkbox-icon'" >
       <input class="form-control" type="checkbox" [formControl]="inputControl">
-      <span class="check-box-label clickable-label" [ngClass]="{'filled':inputControl.value}"><span>{{labelText}}</span></span>
+      <span class="checkbox-icon-label" [ngClass]="{'filled':inputControl.value}"><span>{{labelText}}</span></span>
   </label>
   
 	<div class="col-xs-12" *ngSwitchCase="'radio'" >

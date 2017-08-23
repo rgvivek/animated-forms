@@ -5,7 +5,6 @@ import { DateConfig } from 'app/common/animated-input/date-config';
 import { DropDownConfig } from 'app/common/animated-input/drop-down-config';
 import { RadioGroupConfig, Radio } from 'app/common/animated-input/radio-group-config';
 import { CheckBoxConfig } from 'app/common/animated-input/check-box-config';
-import { ToggleButtonConfig } from 'app/common/animated-input/toggle-button-config';
 
 @Component({
   selector: 'app-simple-form',

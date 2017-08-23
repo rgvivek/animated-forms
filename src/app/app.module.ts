@@ -13,6 +13,8 @@ import { EvaluationWizardComponent } from './evaluation-wizard/evaluation-wizard
 import { BasicInfoComponent } from './evaluation-wizard/basic-info/basic-info.component';
 import { SkillsInfoComponent } from './evaluation-wizard/skills-info/skills-info.component';
 import { ScoresInfoComponent } from './evaluation-wizard/scores-info/scores-info.component';
+import { NotificationsComponent } from './common/notifications/notifications.component';
+import { NotificationsService } from './common/notifications/notifications.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ScoresInfoComponent } from './evaluation-wizard/scores-info/scores-info
     EvaluationWizardComponent,
     BasicInfoComponent,
     SkillsInfoComponent,
-    ScoresInfoComponent
+    ScoresInfoComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { ScoresInfoComponent } from './evaluation-wizard/scores-info/scores-info
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [NotificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

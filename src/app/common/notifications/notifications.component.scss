@@ -1,0 +1,76 @@
+@import "../colors.scss";
+
+.notification-dismissable{
+    margin-top:-150px;
+    box-shadow: 0 5px 20px;
+    float:left;
+    span.glyphicon {
+        text-align: center;
+        padding-top: 5px;
+        margin-top: -15px;
+        margin-left: 15px;
+        box-shadow: 0 0 25px;
+        width: 35px;
+        height: 35px;
+        font-size: 25px;
+        background: $White;
+        border-radius: 50%;
+    }
+    span.message{
+        margin-top:-20px;
+        padding:25px 50px;
+        padding-right:25px;
+        color:$White;
+        float:left;
+        width: calc(100% - 25px);
+        white-space: normal;
+        word-break: break-word;
+    }
+    .close{
+        color:$White;
+        width:25px;
+        top:30%; 
+        opacity:.9;
+        font-weight:normal;  
+    }
+    transition: margin 600ms;
+    width:100%;
+    opacity:.9;
+    border-radius:5px;
+    &.success{
+        background:$Text-Green-1;
+        >span.glyphicon{
+            color : $Text-Green-1;
+            &:before{
+                content: "\E125";
+            }
+        }
+    }
+    &.error{
+        background:$BG-Red-1;
+        >span.glyphicon{
+            color : $BG-Red-1;
+            &:before{
+                content: "\E126";
+            }
+        }
+    }
+    &.warn{
+        background:$BG-Yellow-1;
+        >span.glyphicon{
+            color : $BG-Yellow-1;
+            &:before{
+                content: "\E123";
+            }
+        }
+    }
+    &.info{
+        background:$BG-Blue-1;
+        >span.glyphicon{
+            color : $BG-Blue-1;
+            &:before{
+                content: "\E122";
+            }
+        }
+    }
+}
