@@ -14,6 +14,7 @@ export class TabsComponent implements AfterViewInit {
   constructor(private tabsElement: ElementRef) { };
 
   ngAfterViewInit(){
+    /*Initialize first tab, if not tab is selected*/
     setTimeout(_=> {
         let activeTabs = this.tabs.filter((tab)=>tab.active);
     
@@ -23,10 +24,12 @@ export class TabsComponent implements AfterViewInit {
     });
   }
 
+  /* This method will fire on all orientation changes */
   onResize(){
     this.selectTab(this.highlightedTab);
   }
 
+  /* On selection of tab, set the animation parameters for the highlighted floating div */
   selectTab(tab: TabComponent){
     this.tabs.toArray().forEach(tab => tab.active = false);
     tab.active = true;
