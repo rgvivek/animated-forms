@@ -15,14 +15,17 @@ export class NotificationsComponent implements OnInit {
     constructor(private notificationsService: NotificationsService) { }
 
     ngOnInit() {
+        /* Subcribe to notification service to receive notifications to be displayed*/
         this.notificationsService.notifications.subscribe((notification: Notification) => {
             if (!notification) {
                 this.notifications = [];
             }else{
                 this.notifications.push(notification);
+                /* This timeout is needed for animation purpose */
                 setTimeout(_=> {
                         notification.marginTop = '30px';
                 }, 100);
+                /* If time is specified in notification, remove notifiation after specified time */
                 if(notification.time){
                     setTimeout(_=> {
                         this.removeNotification(notification)

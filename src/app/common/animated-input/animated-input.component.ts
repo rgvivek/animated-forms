@@ -33,6 +33,7 @@ export class AnimatedInputComponent implements OnInit {
   logo:any = "assets/user.png";
 
 	ngOnInit() {
+    /* Do not show label for specific input types */
 		switch(this.inputType){
 			case "file":
       case "radio":
@@ -44,12 +45,15 @@ export class AnimatedInputComponent implements OnInit {
 		}
 	}
 
+  /*Method to read photo and display - This is used only ofr input type - File*/
   onFileChange(fileInput:any){
     let reader = new FileReader();
     let animatedInput = this;
+    /*Read the uploaded file*/
     reader.onload = (e: any) => {
       let userImage = new Image();
       userImage.onload = (image:any) => {
+        /*Set the portrait mode based on image dimensions*/
         if(userImage.width < userImage.height){
           animatedInput.isPortraitMode = true;
         }else{

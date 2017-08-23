@@ -23,6 +23,7 @@ public notifications:BehaviorSubject<Notification> = new BehaviorSubject<Notific
         this.notification(NotificationType.Warning, message, time, 'warn');
     }
 
+    /*Update the behaviour subject, to notify the listeners*/
     notification(type: NotificationType, message: string, time:number = 5000, className:string) {
         this.notifications.next(<Notification>{ type: type, message: message, time:time, class:className });
     }
